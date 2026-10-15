@@ -1,0 +1,237 @@
+watcher started 20:30:15 (PC time); waiting for Deck to go to sleep
+deck went down at 20:31:17 (PC time); now retrying ssh every 2 s
+ssh back on attempt 34 at 20:33:31 (PC time)
+=== CONNECTED 20:33:31.923
+20:33:31.926 fan=0 fault=1 target=0 apu=57C gpu=99%
+=== last resume: Oct 14 20:33:30 steamdeck kernel: PM: suspend exit
+=== EC MMIO snapshot immediately after wake
+FNCK(0x39F)=0  CTMP(0x186)=48 C  FNRL/FNRH(0x3B0/1)=0 rpm  FSLO/FSHI(0xB92/3)=0  CRLO/CRHI(0xB90/1)=0  CPUT=80 GN=0 FRPR=100 HYST=3
+byte 0x39F raw = 0x02 ; 0x3A8 raw = 0x00
+--- page 0x100
+100: 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+110: 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+120: ff 00 00 00 00 00 00 00 00 00 00 00 00 04 01 15
+130: 00 00 00 00 00 00 00 00 00 00 23 00 00 00 ab 0b
+170: 22 0b 00 00 00 00 40 2f 00 00 00 00 8b 38 fc 21
+180: 00 00 00 00 00 00 30 00 30 00 00 00 be 09 1a 00
+1d0: 00 00 00 00 00 00 00 00 00 00 06 00 00 00 00 00
+1e0: 00 00 00 03 00 00 00 00 08 39 9d 03 6c 39 59 06
+1f0: 00 00 00 00 00 00 00 00 14 00 00 00 00 00 00 00
+--- page 0x300
+320: 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00
+330: 00 00 0f 00 ff ff ff ff 00 00 00 00 00 00 00 00
+340: 0b 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00
+350: 00 00 00 00 00 00 03 00 23 00 00 00 00 00 00 40
+360: 00 00 00 00 00 00 00 00 00 40 00 02 02 0c 0c 00
+370: 5a 19 42 1a 3c 1e 80 00 00 00 00 00 00 00 00 00
+380: 00 00 00 00 00 64 14 5d 20 00 00 00 01 c0 00 00
+390: 00 00 42 1a 00 00 4e 3c 14 c4 22 00 00 ee 0b 02
+3a0: 10 00 00 1c 01 02 00 00 00 33 00 00 ff 00 00 00
+3b0: 00 00 00 00 00 40 02 00 00 00 00 00 00 05 00 00
+3d0: 4e 00 00 00 00 00 00 00 4e 00 00 00 00 00 00 00
+3e0: 00 00 00 00 00 00 00 23 00 00 02 00 01 00 00 00
+3f0: 00 00 00 00 00 00 00 00 00 00 47 30 31 31 30 30
+--- page 0x400
+400: 3c 00 00 00 1e 00 00 00 0c 00 07 0a 63 00 00 00
+420: 00 00 00 33 00 00 00 02 00 00 00 00 02 00 00 00
+430: 63 01 00 00 00 00 00 00 00 02 00 00 00 00 00 00
+440: 4e 00 03 00 00 00 00 00 00 00 00 00 00 00 00 80
+450: 00 00 00 28 23 70 17 9a 00 24 13 10 02 00 00 02
+460: 10 5a 19 00 be 0c 3c 14 c4 22 00 00 5d 20 ee 0b
+470: 00 00 00 00 00 3c 00 3c 1e 87 03 00 00 00 00 00
+4a0: 00 00 00 00 00 00 00 49 00 a4 01 00 00 00 00 00
+4b0: 00 2f 10 2e 10 00 00 00 00 00 00 2f 10 00 00 00
+4d0: 00 00 00 00 00 00 00 00 00 00 22 0b 00 1e 00 00
+4f0: bb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+--- page 0x800
+810: 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+840: 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 00
+850: 00 00 00 00 2c 4a 00 01 4c 4d 4d 4d 00 00 00 30
+860: 2c 4b 00 00 48 4a 00 49 00 00 00 00 00 00 00 00
+8c0: 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00
+--- page 0xa00
+a00: 2f 10 2e 10 00 00 00 00 00 00 00 00 00 00 00 00
+a10: 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00 00
+a20: 01 00 0f 00 00 00 64 5c 31 00 54 30 41 00 00 00
+a40: 46 37 47 2d 54 30 41 00 00 00 00 00 00 00 00 00
+a60: 41 54 43 00 00 00 00 00 00 00 00 00 00 00 00 00
+a70: 53 45 42 4e 36 30 39 30 31 46 44 43 00 00 00 00
+aa0: 00 04 12 31 41 41 00 00 00 00 00 00 00 00 00 00
+--- page 0xb00
+b80: 52 45 01 04 45 45 01 04 45 03 ff 23 00 00 00 00
+b90: 00 00 00 00 50 00 00 64 03 00 00 00 00 00 00 3c
+bb0: 02 01 9c 00 00 0a 32 32 32 32 0b 0b 50 55 00 64
+--- page 0xc00
+c00: 00 2f 00 01 00 00 0d 00 00 00 2c 01 2c 01 5a 00
+c40: 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00
+c50: 00 00 00 00 00 00 2c 01 2c 01 5a 00 00 00 00 00
+--- page 0xd00
+=== 45 s of samples (1 s)
+20:33:32.093 fan=0 fault=1 target=0 apu=58C gpu=100%
+20:33:33.108 fan=0 fault=1 target=0 apu=58C gpu=100%
+20:33:34.127 fan=0 fault=1 target=0 apu=61C gpu=89%
+20:33:35.144 fan=0 fault=1 target=0 apu=61C gpu=100%
+20:33:36.161 fan=0 fault=1 target=0 apu=64C gpu=99%
+20:33:37.177 fan=0 fault=1 target=0 apu=64C gpu=99%
+20:33:38.194 fan=0 fault=1 target=0 apu=66C gpu=68%
+20:33:39.210 fan=0 fault=1 target=0 apu=66C gpu=99%
+20:33:40.227 fan=0 fault=1 target=0 apu=67C gpu=99%
+20:33:41.240 fan=0 fault=1 target=0 apu=69C gpu=100%
+20:33:42.257 fan=0 fault=1 target=0 apu=69C gpu=100%
+20:33:43.279 fan=0 fault=1 target=0 apu=71C gpu=99%
+20:33:44.299 fan=0 fault=1 target=0 apu=71C gpu=99%
+20:33:45.318 fan=0 fault=1 target=0 apu=72C gpu=100%
+20:33:46.337 fan=0 fault=1 target=0 apu=72C gpu=99%
+20:33:47.358 fan=0 fault=1 target=0 apu=74C gpu=99%
+20:33:48.379 fan=0 fault=1 target=0 apu=74C gpu=99%
+20:33:49.398 fan=0 fault=1 target=0 apu=73C gpu=100%
+20:33:50.420 fan=0 fault=1 target=0 apu=76C gpu=99%
+20:33:51.442 fan=0 fault=1 target=0 apu=77C gpu=99%
+20:33:52.461 fan=0 fault=1 target=0 apu=79C gpu=87%
+20:33:53.480 fan=0 fault=1 target=0 apu=79C gpu=99%
+20:33:54.499 fan=0 fault=1 target=0 apu=79C gpu=99%
+20:33:55.520 fan=0 fault=1 target=0 apu=80C gpu=99%
+20:33:56.543 fan=0 fault=1 target=0 apu=80C gpu=99%
+20:33:57.565 fan=0 fault=1 target=0 apu=81C gpu=100%
+20:33:58.586 fan=0 fault=1 target=0 apu=83C gpu=100%
+20:33:59.607 fan=0 fault=1 target=0 apu=83C gpu=64%
+20:34:00.629 fan=0 fault=1 target=0 apu=84C gpu=99%
+20:34:01.650 fan=0 fault=1 target=0 apu=84C gpu=100%
+20:34:02.669 fan=0 fault=1 target=0 apu=84C gpu=100%
+20:34:03.689 fan=0 fault=1 target=0 apu=85C gpu=99%
+20:34:04.708 fan=0 fault=1 target=0 apu=86C gpu=99%
+20:34:05.731 fan=0 fault=1 target=0 apu=87C gpu=100%
+20:34:06.752 fan=0 fault=1 target=0 apu=87C gpu=99%
+20:34:07.774 fan=0 fault=1 target=0 apu=88C gpu=88%
+20:34:08.795 fan=0 fault=1 target=0 apu=88C gpu=100%
+20:34:09.817 fan=0 fault=1 target=0 apu=90C gpu=99%
+20:34:10.837 fan=0 fault=1 target=0 apu=89C gpu=99%
+20:34:11.858 fan=0 fault=1 target=0 apu=90C gpu=100%
+20:34:12.880 fan=0 fault=1 target=0 apu=92C gpu=100%
+20:34:13.901 fan=0 fault=1 target=0 apu=92C gpu=99%
+20:34:14.923 fan=0 fault=1 target=0 apu=91C gpu=99%
+20:34:15.944 fan=0 fault=1 target=0 apu=92C gpu=99%
+20:34:16.966 fan=0 fault=1 target=7300 apu=94C gpu=78%
+=== EC MMIO snapshot at +45 s
+FNCK(0x39F)=0  CTMP(0x186)=93 C  FNRL/FNRH(0x3B0/1)=0 rpm  FSLO/FSHI(0xB92/3)=0  CRLO/CRHI(0xB90/1)=0  CPUT=80 GN=0 FRPR=100 HYST=3
+byte 0x39F raw = 0x02 ; 0x3A8 raw = 0x00
+--- page 0x100
+100: 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+110: 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+120: ff 00 00 00 00 00 00 00 00 00 00 00 00 04 01 15
+130: 00 00 00 00 00 00 00 00 00 00 23 00 00 00 ab 0b
+170: 22 0b 00 00 00 00 40 28 00 00 00 00 8b 38 fc 21
+180: 0e 00 00 00 00 00 5d 00 5d 00 00 00 b1 09 1e 00
+1d0: 00 00 00 00 00 00 00 00 00 00 06 00 00 00 00 00
+1e0: 00 00 00 03 00 00 00 00 6c 39 5f 05 85 39 aa 05
+1f0: 00 00 00 00 00 00 00 00 14 00 00 00 00 00 00 00
+--- page 0x300
+320: 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00
+330: 00 00 0f 00 ff ff ff ff 00 00 00 00 00 00 00 00
+340: 0b 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00
+350: 00 00 00 00 00 00 03 00 57 00 00 00 00 00 00 40
+360: 00 00 00 00 00 00 00 00 00 40 00 02 02 0c 0c 00
+370: 5a 19 42 1a 3c 1e 80 00 00 00 00 00 00 00 00 00
+380: 00 00 00 00 00 64 14 5d 20 00 00 00 01 c0 00 00
+390: 00 00 42 1a 00 00 4e 3c 14 c4 22 00 00 ef 0b 02
+3a0: 10 00 00 1c 01 02 00 00 00 33 00 00 ff 00 00 00
+3b0: 00 00 00 00 00 40 02 00 04 00 00 00 00 05 00 00
+3d0: 4e 00 00 00 00 00 00 00 4e 00 00 00 00 00 00 00
+3e0: 00 00 00 00 00 00 00 23 00 00 02 00 01 00 00 00
+3f0: 00 00 00 00 00 00 00 00 00 00 47 30 31 31 30 30
+--- page 0x400
+400: 3c 00 00 00 1e 00 00 00 0c 00 07 0a 63 00 00 00
+420: 00 00 00 33 00 00 00 02 00 00 00 00 02 00 00 00
+430: a9 00 00 00 00 00 00 00 00 00 20 00 00 00 00 00
+440: 4e 00 03 00 00 00 00 00 00 00 00 00 00 00 00 80
+450: 00 00 00 28 23 70 17 f6 00 24 13 10 02 00 00 02
+460: 10 5a 19 00 be 0c 3c 14 c4 22 00 00 5d 20 ef 0b
+470: 00 00 00 00 00 3c 00 3c 1e 87 03 00 00 00 00 00
+4a0: 00 00 00 00 00 00 00 49 00 a4 01 00 00 00 00 00
+4b0: 00 2e 10 2e 10 00 00 00 00 00 00 2e 10 00 00 00
+4d0: 00 00 00 00 00 00 00 00 00 00 22 0b 00 1e 00 00
+4f0: bb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+--- page 0x800
+810: 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+840: 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 00
+850: 00 00 00 00 57 54 06 00 5a 5b 5c 5c 5d 5d 59 5a
+860: 52 57 00 00 54 49 01 3e 00 00 00 00 00 00 00 00
+8c0: 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00
+--- page 0xa00
+a00: 2e 10 2e 10 00 00 00 00 00 00 00 00 00 00 00 00
+a10: 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00 00
+a20: 01 00 0f 00 00 00 64 5c 31 00 54 30 41 00 00 00
+a40: 46 37 47 2d 54 30 41 00 00 00 00 00 00 00 00 00
+a60: 41 54 43 00 00 00 00 00 00 00 00 00 00 00 00 00
+a70: 53 45 42 4e 36 30 39 30 31 46 44 43 00 00 00 00
+aa0: 00 04 12 31 41 41 00 00 00 00 00 00 00 00 00 00
+--- page 0xb00
+b80: 52 45 01 04 45 45 01 04 45 03 ff 23 00 00 00 00
+b90: 00 00 00 00 50 00 00 64 03 00 00 00 00 00 00 3c
+ba0: 84 1c 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+bb0: 02 01 9c 00 00 0a 32 32 32 32 0b 0b 50 55 00 64
+--- page 0xc00
+c00: 00 2f 00 01 00 00 0d 00 00 00 2c 01 2c 01 5a 00
+c40: 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00
+c50: 00 00 00 00 00 00 2c 01 2c 01 5a 00 00 00 00 00
+--- page 0xd00
+=== EC RAM (ec_sys) at +45 s
+00000000: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000010: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000020: 0000 0000 0000 0000 0000 0000 ffff 0000  ................
+00000030: 0000 0f00 ffff ffff 0000 0000 0000 0000  ................
+00000040: 0b00 0004 0400 0000 0000 0000 0000 0000  ................
+00000050: 0000 0000 0000 0300 5700 0000 0000 0040  ........W......@
+00000060: 0000 0000 0000 0000 0040 0002 020c 0c00  .........@......
+00000070: 5a19 421a 3c1e 8000 0000 0000 0000 0000  Z.B.<...........
+00000080: 0000 0000 0064 145d 2000 0000 01c0 0000  .....d.] .......
+00000090: 0000 421a 0000 4e3c 14c4 2200 00ef 0b02  ..B...N<..".....
+000000a0: 1000 001c 0102 0000 0033 0000 ff00 0000  .........3......
+000000b0: 0000 0000 0040 0200 0400 0000 0005 0000  .....@..........
+000000c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000d0: 4e00 0000 0000 0000 4e00 0000 0000 0000  N.......N.......
+000000e0: 0000 0000 0000 0023 0000 0200 0100 0000  .......#........
+000000f0: 0000 0000 0000 0000 0000 4730 3131 3030  ..........G01100
+=== journal around suspend/resume
+Oct 14 20:29:33 steamdeck kernel: amdgpu 0000:04:00.0: amdgpu: SMU is resumed successfully!
+Oct 14 20:29:34 steamdeck kernel: PM: suspend exit
+Oct 14 20:29:34 steamdeck bluetoothd[876]: Controller resume with wake event 0x0
+Oct 14 20:29:34 steamdeck systemd-sleep[24632]: System returned from sleep operation 'suspend'.
+Oct 14 20:29:34 steamdeck systemd[1]: systemd-suspend.service: Deactivated successfully.
+Oct 14 20:29:34 steamdeck systemd-logind[935]: Operation 'suspend' finished.
+Oct 14 20:29:34 steamdeck steam[14197]: Game Recording - Created timeline on system resume [gameid=2138710][started_recording=false]
+Oct 14 20:29:36 steamdeck steam[14197]: Game Recording - Created timeline on system resume [gameid=2138710][started_recording=false]
+Oct 14 20:31:03 steamdeck sudo[25187]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/usr/bin/tee /etc/systemd/system-sleep/90-fanprobe.sh
+Oct 14 20:31:03 steamdeck sudo[25196]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/usr/bin/chmod 755 /etc/systemd/system-sleep/90-fanprobe.sh
+Oct 14 20:31:03 steamdeck sudo[25214]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/usr/bin/bash -n /etc/systemd/system-sleep/90-fanprobe.sh
+Oct 14 20:31:03 steamdeck sudo[25224]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/etc/systemd/system-sleep/90-fanprobe.sh test manual
+Oct 14 20:31:11 steamdeck sudo[25262]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/usr/bin/systemctl suspend
+Oct 14 20:31:11 steamdeck systemd-logind[935]: The system will suspend now!
+Oct 14 20:31:11 steamdeck steam[14197]: Game Recording - Closing timeline on system suspend [gameid=2138710][bg_recording=false]
+Oct 14 20:31:11 steamdeck systemd-sleep[25290]: Performing sleep operation 'suspend'...
+Oct 14 20:31:11 steamdeck kernel: PM: suspend entry (deep)
+Oct 14 20:33:30 steamdeck kernel: printk: Suspending console(s) (use no_console_suspend to debug)
+Oct 14 20:33:30 steamdeck kernel: ACPI: EC: interrupt blocked
+Oct 14 20:33:30 steamdeck kernel: ACPI: PM: Preparing to enter system sleep state S3
+Oct 14 20:33:30 steamdeck kernel: ACPI: EC: event blocked
+Oct 14 20:33:30 steamdeck kernel: ACPI: EC: EC stopped
+Oct 14 20:33:30 steamdeck kernel: ACPI: PM: Saving platform NVS memory
+Oct 14 20:33:30 steamdeck kernel: ACPI: PM: Low-level resume complete
+Oct 14 20:33:30 steamdeck kernel: ACPI: EC: EC started
+Oct 14 20:33:30 steamdeck kernel: ACPI: PM: Restoring platform NVS memory
+Oct 14 20:33:30 steamdeck kernel: ACPI: PM: Waking up from system sleep state S3
+Oct 14 20:33:30 steamdeck kernel: ACPI: EC: interrupt unblocked
+Oct 14 20:33:30 steamdeck kernel: ACPI: EC: event unblocked
+Oct 14 20:33:30 steamdeck kernel: amdgpu 0000:04:00.0: amdgpu: SMU is resumed successfully!
+Oct 14 20:33:30 steamdeck vpower[1058]: Info: AC Adapter status after suspend: 'Connected' at 45W, battery 77.66%, status: 'Full'
+Oct 14 20:33:30 steamdeck bluetoothd[876]: Controller resume with wake event 0x0
+Oct 14 20:33:30 steamdeck kernel: PM: suspend exit
+Oct 14 20:33:30 steamdeck systemd-sleep[25290]: System returned from sleep operation 'suspend'.
+Oct 14 20:33:30 steamdeck systemd[1]: systemd-suspend.service: Deactivated successfully.
+Oct 14 20:33:30 steamdeck systemd-logind[935]: Operation 'suspend' finished.
+Oct 14 20:33:30 steamdeck steam[14197]: Game Recording - Created timeline on system resume [gameid=2138710][started_recording=false]
+Oct 14 20:33:30 steamdeck steam[14197]: Game Recording - Created timeline on system resume [gameid=2138710][started_recording=false]
+Oct 14 20:34:16 steamdeck sudo[25716]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/usr/bin/tee /sys/class/hwmon/hwmon3/fan1_target
+Oct 14 20:34:17 steamdeck sudo[25757]:     deck : PWD=/home/deck ; USER=root ; COMMAND=/usr/bin/tee /sys/class/hwmon/hwmon3/fan1_target
+=== DONE 20:34:18
+WATCHER DONE 20:34:18

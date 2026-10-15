@@ -1,0 +1,178 @@
+watcher started 20:11:41 (PC time); waiting for Deck to go to sleep
+deck went down at 20:11:47 (PC time); now retrying ssh every 2 s
+ssh back on attempt 23 at 20:13:17 (PC time)
+=== CONNECTED 20:13:16.869
+20:13:16.871 fan=2862 fault=0 target=0 apu=45C gpu=85%
+=== last resume: Oct 14 20:13:15 steamdeck kernel: PM: suspend exit
+=== EC MMIO snapshot immediately after wake
+FNCK(0x39F)=1  CTMP(0x186)=0 C  FNRL/FNRH(0x3B0/1)=2862 rpm  FSLO/FSHI(0xB92/3)=0  CRLO/CRHI(0xB90/1)=0  CPUT=80 GN=0 FRPR=100 HYST=3
+byte 0x39F raw = 0x03 ; 0x3A8 raw = 0x00
+--- page 0x100
+=== 45 s of samples (1 s)
+20:13:17.009 fan=2862 fault=0 target=0 apu=45C gpu=0%
+20:13:18.021 fan=2871 fault=0 target=0 apu=45C gpu=0%
+20:13:19.032 fan=2875 fault=0 target=0 apu=45C gpu=0%
+20:13:20.045 fan=2875 fault=0 target=0 apu=46C gpu=0%
+20:13:21.056 fan=2875 fault=0 target=0 apu=46C gpu=18%
+20:13:22.068 fan=2875 fault=0 target=0 apu=46C gpu=2%
+20:13:23.080 fan=2875 fault=0 target=0 apu=46C gpu=72%
+20:13:24.093 fan=2862 fault=0 target=0 apu=47C gpu=73%
+20:13:25.106 fan=2871 fault=0 target=0 apu=47C gpu=0%
+20:13:26.118 fan=2871 fault=0 target=0 apu=46C gpu=0%
+20:13:27.131 fan=2862 fault=0 target=0 apu=46C gpu=0%
+20:13:28.141 fan=2871 fault=0 target=0 apu=47C gpu=0%
+20:13:29.152 fan=2875 fault=0 target=0 apu=47C gpu=2%
+20:13:30.166 fan=2875 fault=0 target=0 apu=47C gpu=0%
+20:13:31.177 fan=2875 fault=0 target=0 apu=47C gpu=85%
+20:13:32.190 fan=2862 fault=0 target=0 apu=47C gpu=89%
+20:13:33.202 fan=2871 fault=0 target=0 apu=47C gpu=90%
+20:13:34.213 fan=2862 fault=0 target=0 apu=47C gpu=12%
+20:13:35.226 fan=2862 fault=0 target=0 apu=48C gpu=0%
+20:13:36.237 fan=2862 fault=0 target=0 apu=48C gpu=0%
+20:13:37.247 fan=2875 fault=0 target=0 apu=48C gpu=0%
+20:13:38.259 fan=2875 fault=0 target=0 apu=47C gpu=0%
+20:13:39.270 fan=2832 fault=0 target=0 apu=48C gpu=62%
+20:13:40.282 fan=2819 fault=0 target=0 apu=48C gpu=2%
+20:13:41.294 fan=2832 fault=0 target=0 apu=47C gpu=0%
+20:13:42.305 fan=2819 fault=0 target=0 apu=48C gpu=47%
+20:13:43.318 fan=2819 fault=0 target=0 apu=48C gpu=8%
+20:13:44.329 fan=2828 fault=0 target=0 apu=48C gpu=0%
+20:13:45.342 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:46.354 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:47.365 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:48.376 fan=2819 fault=0 target=0 apu=48C gpu=58%
+20:13:49.390 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:50.402 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:51.414 fan=2811 fault=0 target=0 apu=48C gpu=44%
+20:13:52.425 fan=2819 fault=0 target=0 apu=49C gpu=27%
+20:13:53.436 fan=2819 fault=0 target=0 apu=48C gpu=74%
+20:13:54.448 fan=2819 fault=0 target=0 apu=49C gpu=0%
+20:13:55.461 fan=2806 fault=0 target=0 apu=49C gpu=0%
+20:13:56.472 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:57.483 fan=2819 fault=0 target=0 apu=48C gpu=0%
+20:13:58.494 fan=2819 fault=0 target=0 apu=48C gpu=65%
+20:13:59.508 fan=2806 fault=0 target=0 apu=48C gpu=60%
+20:14:00.518 fan=2811 fault=0 target=0 apu=49C gpu=5%
+20:14:01.530 fan=2806 fault=0 target=0 apu=49C gpu=0%
+=== EC MMIO snapshot at +45 s
+FNCK(0x39F)=1  CTMP(0x186)=50 C  FNRL/FNRH(0x3B0/1)=2811 rpm  FSLO/FSHI(0xB92/3)=0  CRLO/CRHI(0xB90/1)=0  CPUT=80 GN=0 FRPR=100 HYST=3
+byte 0x39F raw = 0x03 ; 0x3A8 raw = 0x00
+--- page 0x100
+100: 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+110: 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+120: ff 00 00 00 00 00 00 00 00 00 00 00 00 04 34 15
+130: 00 00 00 00 00 00 00 00 00 00 23 00 00 00 ab 0b
+170: 22 0b 00 00 00 00 80 09 00 00 00 00 8b 38 fc 21
+180: 0e 00 00 00 00 00 32 00 32 00 00 00 d4 09 1e 00
+1d0: 00 00 00 00 00 00 00 00 00 00 06 00 00 00 00 00
+1e0: 00 00 00 03 00 00 00 00 7f 3a fa 00 66 3a fa 00
+1f0: 00 00 00 00 00 00 00 00 14 00 00 00 00 00 00 00
+--- page 0x300
+320: 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 26 00
+330: 00 00 0f 00 ff ff ff ff 00 00 00 00 00 00 00 00
+340: 0b 00 00 04 04 00 00 00 00 00 00 00 00 00 00 00
+350: 00 00 00 00 00 00 03 00 32 00 00 00 00 00 00 40
+360: 00 00 00 00 00 00 00 00 00 40 00 02 02 0c 0c 00
+370: 5a 19 42 1a 3c 1e 80 00 00 00 00 00 00 00 00 00
+380: 00 00 00 00 00 64 14 55 20 00 00 00 01 c0 00 00
+390: 00 00 42 1a 00 00 4e 3c 14 c4 22 00 00 fe 0b 03
+3a0: 10 00 00 1c 01 02 00 00 00 33 00 00 ff 00 00 00
+3b0: fb 0a 00 00 00 40 02 00 04 00 00 00 00 05 00 00
+3d0: 4e 00 00 00 00 00 00 00 4e 00 00 00 00 00 00 00
+3e0: 00 00 00 00 00 00 00 23 00 00 02 00 01 00 00 00
+3f0: 00 00 00 00 00 00 00 00 00 00 47 30 31 31 30 30
+--- page 0x400
+400: 3c 00 00 1c 00 02 00 00 0c 00 07 0a 63 00 00 00
+420: 00 00 00 33 00 00 00 02 00 00 00 00 02 00 00 00
+430: 63 00 00 00 00 00 00 00 00 00 08 00 00 00 00 00
+440: 4e 00 03 00 00 00 00 00 00 00 00 00 00 00 00 80
+450: 00 00 00 28 23 70 17 70 00 24 13 10 02 00 00 02
+460: 10 5a 19 00 be 0c 3c 14 c4 22 00 00 55 20 fe 0b
+470: 00 00 00 00 00 3c 00 3c 1e 87 03 00 00 00 00 00
+4a0: 00 00 00 00 00 00 00 49 00 a4 01 00 00 00 00 00
+4b0: 00 2b 10 2b 10 00 00 00 00 00 00 2b 10 00 00 00
+4d0: 00 00 00 00 00 00 00 00 00 00 22 0b 00 1e 00 00
+4f0: bb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+--- page 0x800
+810: 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+840: 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 00
+850: 00 00 00 00 32 31 02 00 32 32 32 32 32 32 32 32
+860: 31 32 00 00 31 30 01 2b 00 00 00 00 00 00 00 00
+8c0: 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00
+--- page 0xa00
+a00: 2b 10 2b 10 00 00 00 00 00 00 00 00 00 00 00 00
+a10: 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00 00
+a20: 01 00 0f 00 00 00 64 5c 31 00 54 30 41 00 00 00
+a40: 46 37 47 2d 54 30 41 00 00 00 00 00 00 00 00 00
+a60: 41 54 43 00 00 00 00 00 00 00 00 00 00 00 00 00
+a70: 53 45 42 4e 36 30 39 30 31 46 44 43 00 00 00 00
+aa0: 00 04 12 31 41 41 00 00 00 00 00 00 00 00 00 00
+--- page 0xb00
+b80: 52 45 01 04 45 45 01 04 45 03 ff 23 00 00 00 00
+b90: 00 00 00 00 50 00 00 64 03 00 00 00 00 00 00 3c
+bb0: 02 01 9c 00 00 0a 32 32 32 32 0b 0b 50 55 00 64
+--- page 0xc00
+c00: 00 2f 00 01 00 00 0d 00 00 00 2c 01 2c 01 5a 00
+c40: 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00
+c50: 00 00 00 00 00 00 2c 01 2c 01 5a 00 00 00 00 00
+--- page 0xd00
+=== EC RAM (ec_sys) at +45 s
+00000000: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000010: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000020: 0000 0000 0000 0000 0000 0000 ffff 2600  ..............&.
+00000030: 0000 0f00 ffff ffff 0000 0000 0000 0000  ................
+00000040: 0b00 0004 0400 0000 0000 0000 0000 0000  ................
+00000050: 0000 0000 0000 0300 3200 0000 0000 0040  ........2......@
+00000060: 0000 0000 0000 0000 0040 0002 020c 0c00  .........@......
+00000070: 5a19 421a 3c1e 8000 0000 0000 0000 0000  Z.B.<...........
+00000080: 0000 0000 0064 1455 2000 0000 01c0 0000  .....d.U .......
+00000090: 0000 421a 0000 4e3c 14c4 2200 00fe 0b03  ..B...N<..".....
+000000a0: 1000 001c 0102 0000 0033 0000 ff00 0000  .........3......
+000000b0: 030b 0000 0040 0200 0400 0000 0005 0000  .....@..........
+000000c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000d0: 4e00 0000 0000 0000 4e00 0000 0000 0000  N.......N.......
+000000e0: 0000 0000 0000 0023 0000 0200 0100 0000  .......#........
+000000f0: 0000 0000 0000 0000 0000 4730 3131 3030  ..........G01100
+=== journal around suspend/resume
+Oct 14 20:07:26 steamdeck kernel: ACPI: EC: event blocked
+Oct 14 20:07:26 steamdeck kernel: ACPI: EC: EC stopped
+Oct 14 20:07:26 steamdeck kernel: ACPI: PM: Saving platform NVS memory
+Oct 14 20:07:26 steamdeck kernel: ACPI: PM: Low-level resume complete
+Oct 14 20:07:26 steamdeck kernel: ACPI: EC: EC started
+Oct 14 20:07:26 steamdeck kernel: ACPI: PM: Restoring platform NVS memory
+Oct 14 20:07:26 steamdeck kernel: ACPI: PM: Waking up from system sleep state S3
+Oct 14 20:07:26 steamdeck kernel: ACPI: EC: interrupt unblocked
+Oct 14 20:07:26 steamdeck kernel: ACPI: EC: event unblocked
+Oct 14 20:07:26 steamdeck kernel: amdgpu 0000:04:00.0: amdgpu: SMU is resumed successfully!
+Oct 14 20:07:26 steamdeck vpower[1058]: Info: AC Adapter status after suspend: 'Disconnected', battery 80.02%, status: 'Discharging'
+Oct 14 20:07:26 steamdeck systemd-sleep[20911]: System returned from sleep operation 'suspend'.
+Oct 14 20:07:26 steamdeck bluetoothd[876]: Controller resume with wake event 0x0
+Oct 14 20:07:26 steamdeck kernel: PM: suspend exit
+Oct 14 20:07:26 steamdeck systemd[1]: systemd-suspend.service: Deactivated successfully.
+Oct 14 20:07:26 steamdeck systemd-logind[935]: Operation 'suspend' finished.
+Oct 14 20:07:26 steamdeck steam[14197]: Game Recording - Created timeline on system resume [gameid=2138710][started_recording=false]
+Oct 14 20:07:29 steamdeck steam[14197]: Game Recording - Created timeline on system resume [gameid=2138710][started_recording=false]
+Oct 14 20:10:56 steamdeck systemd-logind[935]: The system will suspend now!
+Oct 14 20:10:57 steamdeck systemd-sleep[21764]: Performing sleep operation 'suspend'...
+Oct 14 20:10:57 steamdeck kernel: PM: suspend entry (deep)
+Oct 14 20:13:15 steamdeck kernel: printk: Suspending console(s) (use no_console_suspend to debug)
+Oct 14 20:13:15 steamdeck kernel: ACPI: EC: interrupt blocked
+Oct 14 20:13:15 steamdeck kernel: ACPI: PM: Preparing to enter system sleep state S3
+Oct 14 20:13:15 steamdeck kernel: ACPI: EC: event blocked
+Oct 14 20:13:15 steamdeck kernel: ACPI: EC: EC stopped
+Oct 14 20:13:15 steamdeck kernel: ACPI: PM: Saving platform NVS memory
+Oct 14 20:13:15 steamdeck kernel: ACPI: PM: Low-level resume complete
+Oct 14 20:13:15 steamdeck kernel: ACPI: EC: EC started
+Oct 14 20:13:15 steamdeck kernel: ACPI: PM: Restoring platform NVS memory
+Oct 14 20:13:15 steamdeck kernel: ACPI: PM: Waking up from system sleep state S3
+Oct 14 20:13:15 steamdeck kernel: ACPI: EC: interrupt unblocked
+Oct 14 20:13:15 steamdeck kernel: ACPI: EC: event unblocked
+Oct 14 20:13:15 steamdeck kernel: amdgpu 0000:04:00.0: amdgpu: SMU is resumed successfully!
+Oct 14 20:13:15 steamdeck vpower[1058]: Info: AC Adapter status after suspend: 'Connected' at 45W, battery 77.66%, status: 'Full'
+Oct 14 20:13:15 steamdeck systemd-sleep[21764]: System returned from sleep operation 'suspend'.
+Oct 14 20:13:15 steamdeck bluetoothd[876]: Controller resume with wake event 0x0
+Oct 14 20:13:15 steamdeck kernel: PM: suspend exit
+Oct 14 20:13:15 steamdeck systemd[1]: systemd-suspend.service: Deactivated successfully.
+Oct 14 20:13:15 steamdeck systemd-logind[935]: Operation 'suspend' finished.
+=== DONE 20:14:02
+WATCHER DONE 20:14:03

@@ -1,0 +1,13 @@
+[Unit]
+Description=EC/fan snapshot before suspend (ExecStart) and after resume (ExecStop)
+Before=sleep.target
+StopWhenUnneeded=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/etc/systemd/system-sleep/90-fanprobe.sh pre suspend
+ExecStop=/etc/systemd/system-sleep/90-fanprobe.sh post suspend
+
+[Install]
+WantedBy=sleep.target
