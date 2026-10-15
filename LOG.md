@@ -590,3 +590,61 @@ User plugged a different wall charger. PD contract 12 V / 1.67 A (20 W), same as
 - RESULT: PASS
 - 52 s sleep (22:29:18->22:30:10), 0 mA at entry: **PASS** (fault 0; counters 1B 01 02, 0x39F = 03 = check passed; 0x38C/D = 01 c0). Output was ramping down at wake (0x09 -> 0x00, fan 673 -> 0 RPM) and the fan idled at 0 RPM until 22:31:00 (APU 38-40 C), then resumed ~2850 RPM by itself. Same cool-idle stop as the charging control and some recoveries; not a fault.
 - **20 W / 12 V now passes 3 of 3 across two different sources (battery pack x2, wall charger x1); 45 W / 15 V fails.** Rules out the battery pack dropping output during sleep as the explanation.
+
+## Second Deck (deck2: OLED 512 GB) - 2026-10-14 23:04
+
+Same firmware as deck (SteamOS 3.8.28 build 20260922.1, BIOS F7G0114, EC VERN G011, PDFV 0x1100, board_id 5). Differences: battery VDL-M (deck: ATC), Kingston 512 GB SSD, jupiter-fan-control active (updated fan control on). Desktop Mode. 45 W charger, PD 15 V / 3 A. Charge limit set to 40 % via sysfs at 23:03:48 (Steam UI min is 50 %); battery 45 %, Not charging, 0 mA. No sleep hook on deck2 (hook lines in results will be blank). Temporary NOPASSWD sudo rule /etc/sudoers.d/zz-deck-nopasswd added by user.
+
+### deck2-45W-50s : 50s sleep
+- pre 23:05:06: fan=1938 fault=0 apu=42C bat=Not charging cur=0uA ac=1 limit=40% game=0
+- post 23:06:07: fan=2087 fault=0 apu=41C bat=Not charging
+- 23:05:06 (deep) entry 23:05:58 exit suspend 
+- hook t=0: 
+- hook t=1.1s: 
+- hook t=4.9s: 
+- RESULT: PASS
+- deck2 52 s sleep (23:05:06->23:05:58) with jupiter-fan-control ACTIVE, 45 W / 15 V, Not charging, 0 mA: **PASS** (fan 2087 RPM, fault 0).
+- 23:07 stopped jupiter-fan-control on deck2 to match deck (EC curve).
+### deck2-45W-50s-fancontrol-off : 50s sleep
+- pre 23:06:38: fan=2798 fault=0 apu=40C bat=Not charging cur=0uA ac=1 limit=40% game=0
+- post 23:07:40: fan=2840 fault=0 apu=39C bat=Not charging
+- 23:06:38 (deep) entry 23:07:30 exit suspend 
+- hook t=0: 
+- hook t=1.1s: 
+- hook t=4.9s: 
+- RESULT: PASS
+- deck2 52 s sleep (23:06:38->23:07:30), jupiter-fan-control STOPPED (EC curve, like deck): **PASS** (fan 2840 RPM, fault 0). Fan-control mode is not the difference.
+### deck2-45W-120s-fancontrol-off : 120s sleep
+- pre 23:07:54: fan=2849 fault=0 apu=39C bat=Not charging cur=0uA ac=1 limit=40% game=0
+- post 23:10:06: fan=2806 fault=0 apu=36C bat=Not charging
+- 23:07:55 (deep) entry 23:09:56 exit suspend 
+- hook t=0: 
+- hook t=1.1s: 
+- hook t=4.9s: 
+- RESULT: PASS
+- deck2 121 s sleep (23:07:55->23:09:56), fan control stopped: **PASS**. deck2 is 3/3 pass on the SAME 45 W charger that fails on deck (user confirmed). deck2 battery 7.768 V at 45 % vs deck ~8.28 V at 79 %.
+- 23:11 raised deck2 limit to 79 % (sysfs) to charge it to deck's level; jupiter-fan-control still stopped.
+- 23:13 transient unit fantest-inhibit.service on deck2 (systemd-inhibit sleep:idle, 90 min) so Desktop Mode doesn't auto-sleep while charging. Must be stopped before the next test (sudo systemctl stop fantest-inhibit).
+- Firmware comparison deck vs deck2 (23:2x): identical SteamOS 3.8.28/20260922.1, kernel, BIOS F7G0114 (2026-02-05), EC VERN G01100, PDFV 0x1100, VBIOS 113-AMDSphJupiter-002, SMU 63.17.0, DMCUB 0x0300000a, all amdgpu fw (hash match), APU microcode 0x8901007, Wi-Fi fw 0x11087fff. Different: Steam client (deck 1791918634, deck2 1788652215), SSD fw (different drives), battery pack F7G-T0A 'ATC' vs F7G-M0A 'VDL-M' (different gauge data blocks). Not readable: battery gauge fw version, controller MCU fw, display bridge fw.
+- 23:21 deck2 at 57 %: limit set to 50 % (sysfs) so it is Not charging, 0 mA, 8.094 V; fantest-inhibit stopped; jupiter-fan-control still stopped.
+### deck2-45W-50s-57pct : 50s sleep
+- pre 23:21:47: fan=2709 fault=0 apu=42C bat=Not charging cur=0uA ac=1 limit=50% game=0
+- post 23:22:45: fan=0 fault=0 apu=41C bat=Not charging
+- 23:21:47 (deep) entry 23:22:38 exit suspend 
+- hook t=0: 
+- hook t=1.1s: 
+- hook t=4.9s: 
+- RESULT: PASS
+- deck2 52 s sleep (23:21:47->23:22:38) at 57 % / 8.09 V, 45 W 15 V, Not charging 0 mA, fan control stopped: **PASS** (fault 0; fan idle-stopped ~20 s after wake then resumed ~2850 RPM). deck2 now 4/4 pass.
+- 23:24 limit back to 79 %, fantest-inhibit restarted, charging resumed.
+### deck2-45W-50s-63pct-gamemode : 50s sleep
+- pre 23:31:19: fan=2705 fault=0 apu=43C bat=Not charging cur=0uA ac=1 limit=50% game=0
+- post 23:32:16: fan=2849 fault=0 apu=42C bat=Not charging
+- 23:31:19 (deep) entry 23:32:09 exit suspend 
+- hook t=0: 
+- hook t=1.1s: 
+- hook t=4.9s: 
+- RESULT: PASS
+- deck2 50 s sleep (23:31:19->23:32:09) at 63 % / 8.241 V, Game Mode, 45 W 15 V, Not charging 0 mA, fan control stopped: **PASS** (fan 2849 RPM at +7 s, fault 0). deck2 now 5/5 pass.
+- 23:35 user ended deck2 testing (not reproducible: 5/5 pass at 45-63 %, 50-121 s, Desktop and Game Mode, fan control on and off, same 45 W charger). 79 % comparison not completed. deck2 restored: charge limit 100 %, jupiter-fan-control started, fantest-inhibit stopped, sudoers rule removed (sudo now asks for password). Left: sshd enabled at boot (user request), PC key in ~/.ssh/authorized_keys, deck2 entry in PC ~/.ssh/config.
+- 23:4x deck2 further cleanup: PC key removed from deck2 authorized_keys, deck2 entry removed from PC ssh config and known_hosts. User to disable sshd on deck2 themselves (needs password).

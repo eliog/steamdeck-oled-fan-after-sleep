@@ -28,6 +28,7 @@ A Steam system report was sent from the device **while the fault was active** on
 5. The EC's fan-loop configuration bytes are identical in faulted and healthy dumps. Only runtime fan state differs.
 6. **Session-independent.** In Desktop Mode (Plasma session, no game running) the same recipe fails at 49 s and 91 s and passes at 38 s, with the identical hook signature. Gamescope and the Steam client are not involved. It also reproduces on the first suspend after a full reboot (52 s, fail; all earlier tests were on a single boot from 2026-10-12) and after a full poweroff of ~24 s with AC still connected (51 s, fail). Powering on from off in the plugged / not-charging state does not trigger it (fan 2483 RPM, fault 0 at +9 s uptime), so the cold-boot variant reported in this thread did not reproduce here. A ~62 s poweroff **with AC disconnected**, then boot and replug, does not clear it either: a 51 s suspend about 25 s after replug passed, but battery current_now was still +691 mA at entry despite the "Not charging" status; the next 52 s suspend with current_now = 0 failed with the usual signature. Post-replug charge current may also account for tests 7 to 9.
 7. **Depends on the PD contract.** On a USB-C battery pack negotiating **12 V / 1.67 A (20 W)** (EC PDVL/PDAM, 0xFE700C56 to 0xC59), with the same charge-inhibited state (0x38C/0x38D = 01 / C0, current_now 0, "Not charging"), 52 s and 92 s suspends both **passed**. No AC change across either suspend (vpower "Connected at 20.04 W" after each resume; PD bytes unchanged in the pre/post hook dumps; battery % flat across the 92 s suspend). Switching back to the 45 W charger (**15 V / 3 A**) minutes later, a 52 s suspend **failed** with the usual signature. Same boot, battery level and charger state; only the PD source changed. A second 12 V / 20 W source (a wall charger, which should not cut output at low load the way some battery packs do) also **passed** a 52 s suspend, so 12 V / 20 W is 3 of 3 across two sources.
+8. **Does not reproduce on a second OLED unit.** A second Steam Deck OLED (512 GB) with byte-identical firmware (SteamOS build, BIOS F7G0114, EC G01100, PDFV 0x1100, SMU/VBIOS/DMCUB) on the **same 45 W charger** (PD 15 V / 3 A), "Not charging" with current_now = 0, passed 5 of 5 suspends (50 to 121 s; battery 45 to 63 %; Desktop and Game Mode; jupiter-fan-control running and stopped). The only firmware-visible hardware difference is the battery pack: this unit's is **F7G-T0A** (model_name "ATC"), the second unit's is **F7G-M0A** ("VDL-M"). See [Second unit](#second-unit-same-firmware-same-charger-does-not-reproduce) and [`data/second-deck/`](data/second-deck/).
 
 ## Reproduction matrix (2026-10-14, all S3 "deep", times from the Deck journal)
 
@@ -74,6 +75,34 @@ Earlier the same day, uninstrumented: 96 min on battery (16:56 to 18:32), fan wo
 
 Tests 7 to 9 are the only long not-charging sleeps that passed; they were consecutive and followed an unplug/replug, but test 14 (9 s after replug) and test 12 (same 60 % limit) failed, so neither the limit value nor time since plug-in explains them. Game state, APU temperature and fan speed at entry do not separate the groups either. With the sweep and the later Desktop Mode, reboot, poweroff and control runs included, the not-charging long-sleep record on the 45 W charger is 17 fail / 3 pass, and 14 of 14 fail since 20:20 (excluding one run taken while current_now was still +691 mA after a replug, which passed).
 
+## Second unit: same firmware, same charger, does not reproduce
+
+Tested 2026-10-14 23:05 to 23:32 on a second Steam Deck OLED (512 GB). No sleep hook was installed on it; results are from fan1_input / fan1_fault read about 7 s after resume and sampled for up to a minute afterwards. Charge inhibit was produced by writing `max_battery_charge_level` below the current level (40 %, then 50 %), and each run waited for current_now = 0.
+
+| # | Sleep | Battery | Mode | jupiter-fan-control | APU at entry | Result |
+|---|---|---|---|---|---|---|
+| 1 | 52 s | 45 % | Desktop | running | 42 °C | pass (2087 RPM) |
+| 2 | 52 s | 45 % | Desktop | stopped (EC curve, as on this unit) | 40 °C | pass (2840 RPM) |
+| 3 | 121 s | 45 % | Desktop | stopped | 39 °C | pass (2806 RPM) |
+| 4 | 52 s | 57 % (8.09 V) | Desktop | stopped | 42 °C | pass (idle stop ~20 s, then 2850 RPM; fault 0) |
+| 5 | 50 s | 63 % (8.24 V) | Game | stopped | 43 °C | pass (2849 RPM) |
+
+On this unit the same charger and state fail at 38 to 46 °C, so APU temperature does not separate the two. Not tested on the second unit: battery at this unit's level (77 to 80 %, ~8.3 V).
+
+| | This unit (1 TB) | Second unit (512 GB) |
+|---|---|---|
+| SteamOS / kernel / BIOS | 3.8.28 build 20260922.1 / 6.18.50-valve2-1 / F7G0114 | same |
+| EC VERN / PDFV / board_id | G01100 / 0x1100 / 5 | same |
+| VBIOS / SMU / DMCUB / microcode | 113-AMDSphJupiter-002 / 63.17.0 / 0x0300000a / 0x8901007 | same |
+| EC fan-loop parameters (0xB90 to 0xB98) | `00 00 00 00 50 00 00 64 03` | same |
+| Battery pack (EC 0xA40, BTMN 0xA60) | **F7G-T0A**, "ATC" | **F7G-M0A**, "VDL-M" |
+| Battery data blocks (EC 0xA20, 0xAA0) | `01 00 0f 00 00 00 64 5c 31 00 54 30 41`, `00 04 12 31 41 41` | `00 00 05 00 00 00 21 20 31 00 4d 30 41`, `00 07 10 1f 44 31 31 30 44` |
+| Battery design / full capacity | 6490 / 6722 mAh | 6470 / 6894 mAh |
+| RAM / SSD | SK hynix LPDDR5 / Phison 1 TB | Samsung LPDDR5 / Kingston 512 GB |
+| Steam client | 1791918634 | 1788652215 |
+
+The fan itself, its connector, and other passive parts are not visible from software. Since several independent users report the same symptom, a part variant interacting with EC logic (battery pack being the leading candidate, given that the failure is confined to the charge-inhibited AC state) seems more likely than a one-off defect, but this is not established.
+
 ## What the EC does at resume (200 ms traces from a root systemd sleep hook; t = 0 is the hook start, about 0.1 s after the kernel's "PM: suspend exit")
 
 Failing wake, test 14 (126 s, not charging, fan 3964 RPM / 54 % output before sleep):
@@ -118,13 +147,14 @@ The resume-time `systemctl restart jupiter-fan-control` workaround from this thr
 
 ## Interpretation (hedged)
 
-On resume from S3 the EC restores its previous fan output and runs a 30-sample tach check. When the suspend lasted about 43 s or more **and** AC is present with charging inhibited, the fan does not turn under drive during that window, so the check fails, output is gated to 0 % and FNCK is cleared; the state persists through further long suspends and through every host command, and is cleared only by a suspend short enough that the EC apparently never enters the state that arms the problem. Why the fan does not turn under drive on that path is not observable from the host: candidates are the fan rail or driver enable not being restored on the AC-idle resume branch, or the check running before the rail is good. The sharp 41 to 44 s edge suggests a fixed EC-side timer after S3 entry (an EC low-power idle transition or a ~40 s charger-supervision/watchdog class event that only matters when the charger is idle). The cold-boot variant reported above by another user in the same charger state fits the same check failing at power-on, although it did not reproduce on this unit. Because a 12 V / 20 W source avoids the failure while 15 V / 45 W triggers it in the same charge-inhibited state, the failing branch depends on the PD contract (input voltage, power level, or the charger IC's operating mode at that input), not on charge inhibit alone.
+On resume from S3 the EC restores its previous fan output and runs a 30-sample tach check. When the suspend lasted about 43 s or more **and** AC is present with charging inhibited, the fan does not turn under drive during that window, so the check fails, output is gated to 0 % and FNCK is cleared; the state persists through further long suspends and through every host command, and is cleared only by a suspend short enough that the EC apparently never enters the state that arms the problem. Why the fan does not turn under drive on that path is not observable from the host: candidates are the fan rail or driver enable not being restored on the AC-idle resume branch, or the check running before the rail is good. The sharp 41 to 44 s edge suggests a fixed EC-side timer after S3 entry (an EC low-power idle transition or a ~40 s charger-supervision/watchdog class event that only matters when the charger is idle). The cold-boot variant reported above by another user in the same charger state fits the same check failing at power-on, although it did not reproduce on this unit. Because a 12 V / 20 W source avoids the failure while 15 V / 45 W triggers it in the same charge-inhibited state, the failing branch depends on the PD contract (input voltage, power level, or the charger IC's operating mode at that input), not on charge inhibit alone. A second OLED unit with identical firmware does not fail on the same charger in the same state (5 of 5), so the failing path also depends on something unit-specific. The battery pack variant (F7G-T0A vs F7G-M0A) is the only difference visible to firmware and sits on the same charger/gauge path; the fan and other passive parts cannot be compared from software.
 
 ## Requests
 
 1. Fix the failing resume branch, and independently make the fan check fail safe: on tach loss drive full duty open-loop and re-check periodically, instead of latching 0 % until the next S3. That alone makes this harmless whatever the root cause.
 2. Expose a fan re-init path through ACPI/hwmon, and/or raise an EC query on FNCK = 0 so SteamOS can react (today the only remedy is a short re-suspend).
 3. Are FNOV / SFAN a live override path on G01100? Is there an EC changelog covering fan init across S3?
+4. Does the EC treat the F7G-T0A and F7G-M0A battery packs differently in the charge-inhibited state? Affected users could report `cat /sys/class/power_supply/BAT1/model_name` to check whether the failure tracks the pack variant.
 
 ## Workarounds until fixed
 
@@ -142,5 +172,6 @@ Measurements over SSH (deck user; root via sudo for /dev/mem reads, read-only ec
 - [`data/ec-dumps/`](data/ec-dumps/): `ec-mmio-faulted-19-45.txt`, `ec-mmio-healthy-19-50.txt`, `ec-ram-faulted-19-40.hex`/`.bin`, `ec-diff-faulted-vs-healthy.txt`.
 - [`data/acpi/DSDT.dsl`](data/acpi/DSDT.dsl) (FANS/FANR/FANC at lines 5345 to 5420; EC field maps at 4328 to 4890; PDVL/PDAM at 5698 to 5722) and the raw `DSDT.aml`.
 - [`data/soak/soak.log`](data/soak/soak.log): 5-minute idle soak samples on AC.
+- [`data/second-deck/`](data/second-deck/): second unit's test results, firmware and hardware inventory, and battery EC fields for both units.
 - [`scripts/deck/`](scripts/deck/): `90-fanprobe.sh` + `fanprobe-sleep.service` (sleep hook), `ecfast.py` (200 ms EC sampler), `ecmmio.py` (EC window dump), `wakecap.sh`, `soaklog.sh`.
 - [`scripts/pc/`](scripts/pc/): `cycle.ps1` (one cued suspend/resume cycle with result capture), `wake-watch*.ps1` (reconnect watchers), `ecdiff.py`.
